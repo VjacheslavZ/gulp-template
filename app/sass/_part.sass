@@ -1,0 +1,226 @@
+.hidden
+  display: none
+
+// Модальное окно
+
+.white-popup
+  width: 470px
+  margin: auto
+  max-width: 50em
+  padding: 50px 46px 50px 46px
+  text-align: center
+  position: relative
+  background-color: #fff
+  border-radius: 5px
+  transition: 0.5s
+  p.modal-title
+    font-size: 24px
+  p.modal-paragraph
+    margin-bottom: 10px
+    font-size: 14px
+  &#popup-success
+    p.success_mail
+      display: block
+    .mfp-close
+      display: none
+  &#popup3
+    width: inherit
+    padding: 0
+    border: none
+    background-color: transparent
+    ul
+      padding: 0
+    li
+      list-style: none
+      a
+        font-size: 30px
+        color: #fff
+    .mfp-close
+      display: none
+  .input_wrap
+    position: relative
+    display: block
+    i
+      display: none
+      position: absolute
+      top: 15px
+      right: 16px
+      font-size: 14px
+      color: #35be70
+  label
+    margin-bottom: 7px
+    margin-left: 5px
+    text-align: left
+    display: block
+    font-size: 14px
+    color: red
+    &.active
+      color: $main_color
+  input
+    width: 100%
+    height: 40px
+    margin-bottom: 10px
+    padding-left: 20px
+    padding-right: 37px
+    color: #3a4763
+    font-size: 14px
+    border: 1px solid #cdcdcd
+    background-color: #ffffff
+    border-radius: 5px
+    transition: 1s
+    &:focus
+      outline: 0
+  textarea
+    width: 100%
+    min-height: 100px
+    margin-bottom: 10px
+    padding-left: 20px
+    padding-right: 37px
+    color: #3a4763
+    font-size: 14px
+    border: 1px solid #cdcdcd
+    background-color: #ffffff
+    border-radius: 5px
+    transition: 1s
+    &:focus
+      outline: 0
+  .success_mail
+    font-size: 14px
+    display: none
+    &.active
+      display: block
+  input[type=submit]
+    margin-bottom: 0
+    margin-top: 20px
+    padding-left: 0
+    padding-right: 0
+    cursor: pointer
+    &:focus
+      outline: 0
+  .select
+    position: relative
+    text-align: left
+    .drop
+      width: 100%
+      max-height: 200px
+      overflow: auto
+      margin: 0 auto
+      padding: 0
+      border-top: none
+      display: none
+      position: absolute
+      background-color: #F4F4F4
+      top: 50px
+      left: 0
+      right: 0
+      z-index: 10
+      li
+        list-style: none
+        border-bottom: none
+        border-top: none
+        cursor: pointer
+        display: block
+        font-size: 18px
+        padding: 7px 15px 7px 25px
+        &:hover
+          background-color: rgba(0,0,0,0.2)
+          outline: 0
+        a
+          text-decoration: none
+    .slct
+      width: 100%
+      height: 40px
+      padding-left: 25px
+      padding-right: 30px
+      margin-bottom: 30px
+      display: block
+      font-size: 18px
+      background-color: #F4F4F4
+      line-height: 40px
+      box-shadow: 0 1px 0 rgba(0,0,2,.28)
+      overflow: hidden
+      white-space: nowrap
+      text-overflow: ellipsis
+      -o-text-overflow: ellipsis
+      text-decoration: none
+      position: relative
+      transition: color 1s
+      &.active
+        color: #000
+        background-color: #F4F4F4
+    .slct_arrow
+      position: absolute
+      top: 5px
+      right: 10px
+      .fa
+        font-size: 24px
+        color: #000
+        position: relative
+        z-index: 10
+        transition: 0.3s
+      &.active .fa
+        transform: rotate(180deg)
+.mfp-zoom-in.mfp-ready.mfp-bg
+  opacity: 0.7
+.mfp-bg
+  background: rgba(11, 11, 11, 0.46)
+.mfp-close-btn-in .mfp-close
+  position: absolute
+  right: 10px
+  top: -30px
+  display: block
+  color: transparent
+  transition: top 0.5s
+  &:hover i
+    color: $main_color
+  i
+    color: #ffffff
+    transition: color 0.5s
+    font-size: 18px
+  &:hover
+    outline: 0
+  &:active
+    outline: 0
+  &:focus
+    outline: 0
+
+.mfp-zoom-in
+  .mfp-with-anim
+    opacity: 0
+    transition: all 0.2s ease-in-out
+    transform: scale(0.8)
+  &.mfp-bg
+    opacity: 0
+    transition: all 0.3s ease-out
+  &.mfp-ready
+    .mfp-with-anim
+      opacity: 1
+      transform: scale(1)
+    &.mfp-bg
+      opacity: 0.8
+  &.mfp-removing
+    .mfp-with-anim
+      transform: scale(0.8)
+      opacity: 0
+    &.mfp-bg
+      opacity: 0
+
+// для формы normal обёртка и иконка success
+.input_wrap
+  position: relative
+  display: block
+  i
+    display: none
+    position: absolute
+    top: 15px
+    right: 16px
+    font-size: 14px
+    color: #35be70
+
+//mmenu
+.hamburger
+  padding: 0
+.hamburger--collapse .hamburger-inner
+  bottom: -4px
+html.mm-blocking, html.mm-blocking body
+  overflow: inherit

@@ -1,0 +1,28 @@
+@import "fonts"
+@import "vars"
+@import "sprite"
+
+@import "default"
+@import "part"
+@import "header"
+
+
+// Секция top-section
+.top-section
+  text-align: center
+  min-height: 600px
+  height: 100vh
+  background: url(../img/header_bg.jpg) no-repeat
+  background-size: cover
+  &__title
+    color: red
+    position: absolute
+    top: calc(50% - 50px)
+    left: 0
+    right: 0
+    &:before
+      content: ""
+      display: block
+      @include sprite($instagram-ic)
+
+

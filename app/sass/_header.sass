@@ -1,0 +1,45 @@
+.header
+  width: 100%
+  padding-top: 30px
+  padding-bottom: 30px
+  background-color: transparent
+  position: absolute
+  z-index: 10
+  &__wrap
+    display: flex
+    justify-content: space-between
+    align-items: center
+  &__logo
+    display: inline-block
+    a
+      color: #fff
+      &:hover
+        text-decoration: none
+  &__nav
+    display: inline-block
+    position: relative
+    ul
+      li
+        list-style: none
+        display: inline-block
+        a
+          margin-right: 15px
+          color: #fff
+          text-decoration: none
+          transition: .5s
+  &__modal
+    display: inline-block
+    a
+      //margin-left: 15px
+      outline: -webkit-focus-ring-color auto 0px
+      outline-color: transparent
+      padding: 10px 15px
+      border: 2px solid #FFF
+      border-radius: 5px
+      text-decoration: none
+      transition: .5s
+      position: relative
+      &:hover
+        border: 2px solid transparent
+        background-color: #ff9600
+        color: #fff

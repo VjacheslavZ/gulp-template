@@ -1,0 +1,82 @@
+doctype html
+html(class="no-js" lang='en')
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')
+        meta(http-equiv='X-UA-Compatible', content='ie=edge')
+        title
+            block title
+
+        style(type='text/css').
+            html .loader {
+                background: #fff;
+                z-index: 9999;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            html .loader .loader_inner {
+                background-size: cover;
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-color: #fff;
+                height: 200px;
+                width: 200px;
+                margin-top: -100px;
+                margin-left: -100px;
+                left: 50%;
+                top: 50%;
+                position: absolute
+            }
+
+        script(src='js/libs.min.js')
+        script(src='js/common.js')
+
+    body
+        div#my-page
+            div
+                .loader
+                    .loader_inner
+                        include ../img/preloader.svg
+
+            block modal
+                include modal
+
+            header#my-header.header
+                .container
+                    .row
+                        .header__wrap
+                            .header__logo
+                                a(href="/" class="logo" title="Логотип").
+                                    Ваш Логотип
+                            nav.header__nav
+                                ul
+                                    -var links = [{title:'Blog', href:'blog.html'},{title:'Преимущества', href:'#'},{title:'Отзывы', href:'#'},{title:'7 3842 59 61 68', href:'tel:73842596168'}];
+                                    each i in links
+                                        li
+                                            a(href=i.href)= i.title
+                            .header__modal
+                                a(data-effect="mfp-zoom-in" data-info="Обратный звонок" href="#popup" class="open-popup-link" title='Вызов стандартного модального окна') Обратный звонок
+                            a(href="#my-menu").hamburger.hamburger--collapse
+                                span.hamburger-box
+                                    span.hamburger-inner
+                            nav#my-menu
+                                ul
+                                    li
+                                        a(href="#") item 1
+                                    li.active
+                                        a(href="#") item 2
+
+            block main
+
+            footer.footer#my-footer
+                h3 footer
+
+        link(rel='stylesheet', href='css/libs.min.css')
+        link(rel='stylesheet', href='css/main.css')
+
