@@ -47,7 +47,7 @@ gulp.task("css-libs", ['sass'], function () {
 gulp.task("scripts-libs", function () {
    return gulp.src([
       "app/libs/jquery/dist/jquery.min.js",
-      "app/libs/bootstrap/dist/js/bootstrap.js",
+      //"app/libs/bootstrap/dist/js/bootstrap.js",
       "app/libs/owl.carousel/dist/owl.carousel.min.js",
       "app/libs/magnific-popup/dist/jquery.magnific-popup.min.js",
       "app/libs/tooltipster/dist/js/tooltipster.bundle.js",
@@ -127,8 +127,7 @@ gulp.task('sprite', function () {
 
 gulp.task("pages", function() {
     return gulp.src([
-        "app/pages/index/index.pug",
-        "app/pages/news/news.pug"
+        "app/pages/index/index.pug"
     ])
         .pipe(pug({pretty: true}))  //с переносом pretty: true
         .pipe(gulp.dest("./app"))
@@ -146,7 +145,7 @@ gulp.task("watch",[ "browser-sync", "css-libs", "script", "scripts-libs", "pages
 
 });
 
-gulp.task("build", ["clean", "img-min", "sass", "scripts-libs"], function () {
+gulp.task("build", ["clean", "img-min", "sass", "scripts-libs", 'sprite'], function () {
 
     var buildCss = gulp.src([
         "app/css/main.css",
