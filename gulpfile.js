@@ -14,6 +14,7 @@ var gulp         = require("gulp"),
     gutil        = require("gulp-util"),
     gulpCopy    = require('gulp-copy'),
     spritesmith = require('gulp.spritesmith');
+    notify = require("gulp-notify");
 
 gulp.task("sass", function () {
     return gulp.src([
@@ -53,8 +54,9 @@ gulp.task("scripts-libs", function () {
       "app/libs/tooltipster/dist/js/tooltipster.bundle.js",
       "app/libs/jquery-validation/dist/jquery.validate.js",
       "app/libs/jquery-mask-plugin/dist/jquery.mask.min.js",
-      "app/libs/select2/dist/js/select2.full.js",
-      "app/libs/mmenu/mmenu/jquery.mmenu.all.js"
+      // "app/libs/select2/dist/js/select2.full.js",
+      "app/libs/mmenu/mmenu/jquery.mmenu.all.js",
+      "app/libs/selectize/dist/js/standalone/selectize.min.js"
 
    ])
        .pipe(concat("libs.min.js"))
@@ -130,6 +132,9 @@ gulp.task("pages", function() {
         "app/pages/index/index.pug"
     ])
         .pipe(pug({pretty: true}))  //с переносом pretty: true
+        .on('error', notify.onError(function (error) {
+            return error
+        }))
         .pipe(gulp.dest("./app"))
         .on('error', gutil.log)
         .pipe(browserSync.stream())

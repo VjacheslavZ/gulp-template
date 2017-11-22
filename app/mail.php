@@ -1,94 +1,52 @@
 <?php
 
-define('__ROOT__', dirname(__FILE__));
-require_once __ROOT__ . '/PHPMailer/class.phpmailer.php';
+$method = $_SERVER['REQUEST_METHOD'];
 
-if ($_POST) {
-	$json = array(); // подготовим массив ответа
+//Script Foreach
+$c = true;
+if ( $method === 'POST' ) {
 
-	if(isset($_POST['form_type'])){
-		$id_form = $_POST['form_type'];
-		$json['form_type'] = $id_form;
+	$project_name = trim($_POST["project_name"]);
+	$admin_email  = trim($_POST["admin_email"]);
+	$form_subject = trim($_POST["form_subject"]);
+
+	foreach ( $_POST as $key => $value ) {
+		if ( $value != "" && $key != "project_name" && $key != "admin_email" && $key != "form_subject" ) {
+			$message .= "
+			" . ( ($c = !$c) ? '<tr>':'<tr style="background-color: #f8f8f8;">' ) . "
+				<td style='padding: 10px; border: #e9e9e9 1px solid;'><b>$key</b></td>
+				<td style='padding: 10px; border: #e9e9e9 1px solid;'>$value</td>
+			</tr>
+			";
+		}
 	}
+} else if ( $method === 'GET' ) {
 
-   
-	 if (isset($_POST['form_name']) and $_POST['form_name'] != "") {
-		$form_name = $_POST['form_name'];
-		$message .= '
-		<h1>Вам сообщение!</h1>
-		<div style="font-size: 18px; margin-bottom: 10px">Из формы: ' . '<span style="font-size: 18px"> ' . $form_name . '</span>' . '</div>';
+	$project_name = trim($_GET["project_name"]);
+	$admin_email  = trim($_GET["admin_email"]);
+	$form_subject = trim($_GET["form_subject"]);
+
+	foreach ( $_GET as $key => $value ) {
+		if ( $value != "" && $key != "project_name" && $key != "admin_email" && $key != "form_subject" ) {
+			$message .= "
+			" . ( ($c = !$c) ? '<tr>':'<tr style="background-color: #f8f8f8;">' ) . "
+				<td style='padding: 10px; border: #e9e9e9 1px solid;'><b>$key</b></td>
+				<td style='padding: 10px; border: #e9e9e9 1px solid;'>$value</td>
+			</tr>
+			";
+		}
 	}
-	if (isset($_POST['name']) and $_POST['name'] != "") {
-		$name = $_POST['name'];
-		$message .= '<div style="font-size: 18px; margin-bottom: 10px; padding-left: 10px">Имя: ' . $name . '</div>';
-	}
-	if (isset($_POST['phone']) and $_POST['phone'] != "") {
-        $phone = $_POST['phone'];
-        $message .= '<div style="font-size: 18px; margin-bottom: 10px; padding-left: 10px">Телефон: ' . $phone . '</div>';
-    }
-    if (isset($_POST['phone_mask']) and $_POST['phone_mask'] != "") {
-        $phone_mask = $_POST['phone_mask'];
-        $message .= '<div style="font-size: 18px; margin-bottom: 10px; padding-left: 10px">Телефон: ' . $phone_mask . '</div>';
-    }
-	if (isset($_POST['email']) and $_POST['email'] != "") {
-		$email = $_POST['email'];
-		$message .= '<div style="font-size: 18px; margin-bottom: 10px; padding-left: 10px">Email: ' . $email . '</div>';
-	}
-	if (isset($_POST['textarea']) and $_POST['textarea'] != "") {
-		$textarea = $_POST['textarea'];
-		$message .= '<div style="font-size: 18px; margin-bottom: 10px; padding-left: 10px">Описание в texarea: ' . $textarea . '</div>';
-	}
-	 if(isset($_POST["services"]) and $_POST['services'] != "") {
-		$services = $_POST["services"];
-		$message .= '<div style="font-size: 18px; margin-bottom: 10px; padding-left: 10px">Select: ' . $services . '</div>';
-	}
-
-
-	$mailer = new PHPMailer();
-	$subject = "Заявка с сайта Название сайта";
-	$to = 'slavikov.net@gmail.com';
- //   $mailer->IsSMTP();
-	$mailer->Host = 'smtp.yandex.ru';
-	$mailer->Port = 465;
-	$mailer->SMTPSecure = "ssl";
-	$mailer->SMTPAuth = true;
-	$mailer->Username = 'efimenko-i-d@yandex.ua';
-	$mailer->Password = 'TabvtyrjBujhm06';
-	$mailer->From = 'you@example.com';
-	$mailer->FromName = 'Your Name';
-	$mailer->CharSet = "UTF-8";
-	$mailer->Subject = $subject;
-	$mailer->MsgHTML($message);
-	$mailer->AddAddress($to);
-
-	//Upload Files
-
-	foreach ($_FILES as $image) {
-
-
-		$ext = '.' . pathinfo($image['name'], PATHINFO_EXTENSION);
-        // раскомментировать если хотим сделать уникальное имя файла
-//		while (true) {
-//			$filename = uniqid(rand(), true) . $ext;
-//
-//
-//			if (!file_exists(__ROOT__ . '\uploads\\' . $filename)) {
-//				break;
-//			}
-//		}
-        $filename = $ext; // убрать этот код, когда раскомментируем wile чтобы сделать уникальное имя файла
-
-		move_uploaded_file($image['tmp_name'], __ROOT__ . '\uploads\\' . $filename);
-		$file_to_attach = __ROOT__ . '\uploads\\' . $filename;
-		$mailer->AddAttachment($file_to_attach, $image['name']); // если раскомментировать вверху wile и добавить в AddAttachment вместо $image['name'] - $filename то будет работать уникальное имя
-		// $images[] = __ROOT__ . '\uploads\\' . $filename;
-	}
-
-	if ($mailer->Send()) {
-		$json['error'] = 0;
-	} else {
-		$json['error'] = 1;
-	}
-
-	echo json_encode($json);
 }
+
+$message = "<table style='width: 100%;'>$message</table>";
+
+function adopt($text) {
+	return '=?UTF-8?B?'.Base64_encode($text).'?=';
+}
+
+$headers = "MIME-Version: 1.0" . PHP_EOL .
+"Content-Type: text/html; charset=utf-8" . PHP_EOL .
+'From: '.adopt($project_name).' <'.$admin_email.'>' . PHP_EOL .
+'Reply-To: '.$admin_email.'' . PHP_EOL;
+
+mail($admin_email, adopt($form_subject), $message, $headers );

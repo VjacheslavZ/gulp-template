@@ -9,6 +9,27 @@
     right: 16px
     font-size: 14px
     color: #35be70
+.callback
+  position: relative
+.s-call__success
+  display: none
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  text-transform: uppercase
+  font-weight: bold
+  z-index: 10
+  //display: flex
+  span
+    margin: auto
+  & ~ *
+    transition: all .5s ease
+  &.active
+    & ~ *
+      opacity: .5
+      filter: blur(1px)
 
 //mmenu
 .hamburger

@@ -69,5 +69,26 @@ li
     &::after
       opacity: .32
 
-
+input, textarea, select
+  background-color: #fff
+  border: 1px solid #000
+  border-radius: 5px
+  padding: 8px 22px
+  outline: none
+  display: block
+  font-size: 16px
+  color: #000
+  margin-top: 10px
+  //стиль для черточки
+  &:focus:required:invalid
+    color: blue
+  &::-webkit-input-placeholder
+    color: #000
+  &::-moz-placeholder
+    color: #000
+    opacity: 1
+  &:-ms-input-placeholder
+    color: #000
+  option
+    color: #000
 

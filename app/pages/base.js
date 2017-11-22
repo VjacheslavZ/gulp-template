@@ -356,12 +356,7 @@ $(document).ready(function () {
 
 
 
-    // Инициализация маски в input
-    $(".mask").mask("+38(999) 999-99-99");
 
-    //hide preloader
-    $(".loader_inner").fadeOut();
-    $(".loader").fadeOut("slow");
 });
 
 $(document).ready(function () {
@@ -387,57 +382,80 @@ $(document).ready(function () {
     // }
 
     // Select в модальном окне
-    $(document).click(function () {
-        $('.slct').removeClass('active');
-        $('.slct_arrow').removeClass('active');
-        $('.slct').parent().find('.drop').slideUp("fast");
-    });
+    // $(document).click(function () {
+    //     $('.slct').removeClass('active');
+    //     $('.slct_arrow').removeClass('active');
+    //     $('.slct').parent().find('.drop').slideUp("fast");
+    // });
 
-    $('.slct').click(function () {
-        /* Заносим выпадающий список в переменную */
-        var dropBlock = $(this).parent().find('.drop');
-        //  закрываем все открытые
-        $('.slct').removeClass('active').parent().find('.drop').slideUp("fast");
+    // $('.slct').click(function () {
+    //     /* Заносим выпадающий список в переменную */
+    //     var dropBlock = $(this).parent().find('.drop');
+    //     //  закрываем все открытые
+    //     $('.slct').removeClass('active').parent().find('.drop').slideUp("fast");
+    //
+    //     /* Делаем проверку: Если выпадающий блок скрыт то делаем его видимым*/
+    //     if (dropBlock.is(':hidden')) {
+    //         dropBlock.slideDown();
+    //
+    //         /* Выделяем ссылку открывающую select */
+    //         $(this).addClass('active');
+    //         $(this).siblings(".slct_arrow").addClass('active');
+    //
+    //
+    //         /* Работаем с событием клика по элементам выпадающего списка */
+    //         $('.drop').find('li').off("click").click(function () {
+    //
+    //             /* Заносим в переменную HTML код элемента
+    //              списка по которому кликнули */
+    //             var selectResult = $(this).html();
+    //
+    //             /* Находим наш скрытый инпут и передаем в него
+    //              значение из переменной selectResult */
+    //             $(this).parent().parent().find('input').val(selectResult);
+    //
+    //             /* Передаем значение переменной selectResult в ссылку которая
+    //              открывает наш выпадающий список и удаляем активность */
+    //             $(this).parent().parent().find(".slct").removeClass('active').html(selectResult);
+    //             $(".slct_arrow").removeClass('active');
+    //
+    //             /* Скрываем выпадающий блок */
+    //             dropBlock.slideUp();
+    //         });
+    //
+    //         /* Продолжаем проверку: Если выпадающий блок не скрыт то скрываем его */
+    //     } else {
+    //         $(this).removeClass('active');
+    //         $(".slct_arrow").removeClass('active');
+    //         dropBlock.slideUp();
+    //     }
+    //
+    //     /* Предотвращаем обычное поведение ссылки при клике */
+    //     return false;
+    // });
 
-        /* Делаем проверку: Если выпадающий блок скрыт то делаем его видимым*/
-        if (dropBlock.is(':hidden')) {
-            dropBlock.slideDown();
+    //E-mail Ajax Send
+    $("form.callback").submit(function() { //Change
 
-            /* Выделяем ссылку открывающую select */
-            $(this).addClass('active');
-            $(this).siblings(".slct_arrow").addClass('active');
+        let th = $(this);
 
-
-            /* Работаем с событием клика по элементам выпадающего списка */
-            $('.drop').find('li').off("click").click(function () {
-
-                /* Заносим в переменную HTML код элемента
-                 списка по которому кликнули */
-                var selectResult = $(this).html();
-
-                /* Находим наш скрытый инпут и передаем в него
-                 значение из переменной selectResult */
-                $(this).parent().parent().find('input').val(selectResult);
-
-                /* Передаем значение переменной selectResult в ссылку которая
-                 открывает наш выпадающий список и удаляем активность */
-                $(this).parent().parent().find(".slct").removeClass('active').html(selectResult);
-                $(".slct_arrow").removeClass('active');
-
-                /* Скрываем выпадающий блок */
-                dropBlock.slideUp();
-            });
-
-            /* Продолжаем проверку: Если выпадающий блок не скрыт то скрываем его */
-        } else {
-            $(this).removeClass('active');
-            $(".slct_arrow").removeClass('active');
-            dropBlock.slideUp();
-        }
-
-        /* Предотвращаем обычное поведение ссылки при клике */
+        $.ajax({
+            type: "POST",
+            url: "mail.php", //Change
+            data: th.serialize()
+        }).done(function() {
+            $(th).find(".success").addClass("active").css("display", "flex").hide().fadeIn();
+            setTimeout(function() {
+                // Done Functions
+                $(th).find(".success").removeClass("active").fadeOut();
+                th.trigger("reset");
+            }, 3000);
+        });
         return false;
     });
+
+    // Инициализация маски в input
+    $(".mask").mask("+38(999) 999-99-99");
 
     //mob menu
     $("#my-menu").mmenu({
@@ -456,4 +474,14 @@ $(document).ready(function () {
     }).bind("close:finish", function () {
         $(".hamburger").removeClass("is-active")
     })
+
+    //styling select
+    $("select").selectize({
+        create: true,
+        sortText: "text",
+    });
+
+    //hide preloader
+    $(".loader_inner").fadeOut("slow");
+    $(".loader").fadeOut("slow");
 });
