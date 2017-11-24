@@ -484,4 +484,6 @@ $(document).ready(function () {
     //hide preloader
     $(".loader_inner").fadeOut("slow");
     $(".loader").fadeOut("slow");
+
+    //com
 });
