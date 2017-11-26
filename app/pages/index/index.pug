@@ -12,7 +12,7 @@ block main
                             span text
                             |  text
                         p text desk
-        //section.intermediate
+        section.intermediate
             .container
                 .row
                     .intermediate_title
@@ -38,7 +38,7 @@ block main
                                 input(type='hidden', name='form_type', value='normal')
                                 .intermediate_item
                                     input(type='submit', value='Записаться')
-        section.s-call
+        //section.s-call
             form.callback
                 //.success - эфект затемнения
                 .s-call__success
@@ -58,6 +58,7 @@ block main
                 // END Hidden Required Fields
                 input(type='text' name='Name' placeholder='You name...' required='')
                 input(type='text' name='E-mail' placeholder='You E-mail...' required='')
+
                 input(type='text' name='Phone' placeholder='You phone...' required='')
                 select(name="Услуга")
                     option услуга 1

@@ -129,58 +129,71 @@
             </div>
           </div>
         </section>
-        <!--section.intermediate
-        .container
-            .row
-                .intermediate_title
-                    h3 Заполните форму и мы бесплатно перезвоним и ответим на ваши вопросы
-                .intermediate_wrap
-                    form#form-file.clearfix
-                        //.file_wrap
-                            input(type='file' name='field')
-                        .row
-                            .intermediate_item
-                                .input_wrap
-                                    i.fa.fa-check
-                                    input(name='name', type='text', placeholder='Имя')
-                            .intermediate_item
-                                .input_wrap
-                                    i.fa.fa-check
-                                    input(name='email', type='text', placeholder='Почта')
-                            .intermediate_item
-                                .input_wrap
-                                    i.fa.fa-check
-                                    input(name='phone', type='text', placeholder='Телефон')
-                            input(type='hidden', name='form_name', value='baseForm')
-                            input(type='hidden', name='form_type', value='normal')
-                            .intermediate_item
-                                input(type='submit', value='Записаться')
-        -->
-        <section class="s-call">
-          <form class="callback">
-            <!--.success - эфект затемнения-->
-            <div class="s-call__success"><span>Спасибо за заявку</span></div>
-            <!--название сайта-->
-            <input type="hidden" name="project_name" value="Site Name !">
-            <!--почта админа-->
-            <input type="hidden" name="admin_email" value="slavikov.net@mail.ru">
-            <!--тема письма-->
-            <input type="hidden" name="form_subject" value="Form Subject">
-            <!--с какой страницы-->
-            <input type="hidden" name="Станица" value="">
-            <div class="formhead">Оставить заявку</div>
-            <!-- END Hidden Required Fields-->
-            <input type="text" name="Name" placeholder="You name..." required="">
-            <input type="text" name="E-mail" placeholder="You E-mail..." required="">
-            <input type="text" name="Phone" placeholder="You phone..." required="">
-            <select name="Услуга">
-              <option>услуга 1</option>
-              <option>услуга 2</option>
-              <option>услуга 3</option>
-            </select>
-            <button>Send</button>
-          </form>
+        <section class="intermediate">
+          <div class="container">
+            <div class="row">
+              <div class="intermediate_title">
+                <h3>Заполните форму и мы бесплатно перезвоним и ответим на ваши вопросы</h3>
+              </div>
+              <div class="intermediate_wrap">
+                <form class="clearfix" id="form-file">
+                  <!--.file_wrapinput(type='file' name='field')
+                  -->
+                  <div class="row">
+                    <div class="intermediate_item">
+                      <div class="input_wrap"><i class="fa fa-check"></i>
+                        <input name="name" type="text" placeholder="Имя">
+                      </div>
+                    </div>
+                    <div class="intermediate_item">
+                      <div class="input_wrap"><i class="fa fa-check"></i>
+                        <input name="email" type="text" placeholder="Почта">
+                      </div>
+                    </div>
+                    <div class="intermediate_item">
+                      <div class="input_wrap"><i class="fa fa-check"></i>
+                        <input name="phone" type="text" placeholder="Телефон">
+                      </div>
+                    </div>
+                    <input type="hidden" name="form_name" value="baseForm">
+                    <input type="hidden" name="form_type" value="normal">
+                    <div class="intermediate_item">
+                      <input type="submit" value="Записаться">
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
         </section>
+        <!--section.s-call
+        form.callback
+            //.success - эфект затемнения
+            .s-call__success
+                span Спасибо за заявку
+        
+            //название сайта
+            input(type='hidden' name='project_name' value='Site Name !')
+            //почта админа
+            input(type='hidden' name='admin_email' value='slavikov.net@mail.ru')
+            //тема письма
+            input(type='hidden' name='form_subject' value='Form Subject')
+            //с какой страницы
+            input(type="hidden" name="Станица" value="")
+        
+            .formhead Оставить заявку
+        
+            // END Hidden Required Fields
+            input(type='text' name='Name' placeholder='You name...' required='')
+            input(type='text' name='E-mail' placeholder='You E-mail...' required='')
+        
+            input(type='text' name='Phone' placeholder='You phone...' required='')
+            select(name="Услуга")
+                option услуга 1
+                option услуга 2
+                option услуга 3
+            button Send
+        -->
       </main>
       <footer class="footer" id="my-footer">
         <h3>footer</h3>
