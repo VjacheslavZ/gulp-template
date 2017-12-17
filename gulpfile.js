@@ -15,6 +15,7 @@ var gulp         = require("gulp"),
     gulpCopy    = require('gulp-copy'),
     spritesmith = require('gulp.spritesmith');
     notify = require("gulp-notify");
+    babel = require('gulp-babel');
 
 gulp.task("sass", function () {
     return gulp.src([
@@ -64,13 +65,19 @@ gulp.task("scripts-libs", function () {
        .pipe(gulp.dest("app/js"));
 });
 
+
+
 gulp.task("script", function () {
    return gulp.src([
        "app/pages/base.js",
        "app/pages/index/index.js",
        "app/pages/news/news.js"
     ])
+
        .pipe(concat("common.js"))
+       .pipe(babel({
+           presets: ['env']
+       }))
        .pipe(gulp.dest("app/js"))
        .pipe(browserSync.stream())
 });

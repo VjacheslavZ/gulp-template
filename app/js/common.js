@@ -1,3 +1,5 @@
+'use strict';
+
 // validation
 $(document).ready(function () {
     //  Отправка форм
@@ -6,7 +8,7 @@ $(document).ready(function () {
         trigger: 'none', // чтобы при ховере и клике не вылетало окошко с ошибкой ставим none. Либо hover/click по надобности
         position: 'bottom',
         theme: 'tooltipster-shadow',
-        functionPosition: function (instance, helper, position) {
+        functionPosition: function functionPosition(instance, helper, position) {
             position.coord.top -= 10;
             return position;
         }
@@ -23,7 +25,7 @@ $(document).ready(function () {
         trigger: 'none', // чтобы при ховере и клике не вылетало окошко с ошибкой ставим none. Либо hover/click по надобности
         position: 'bottom',
         theme: 'tooltipster-shadow',
-        functionPosition: function (instance, helper, position) {
+        functionPosition: function functionPosition(instance, helper, position) {
             position.coord.top -= 10;
             return position;
         }
@@ -33,7 +35,7 @@ $(document).ready(function () {
         trigger: 'none', // чтобы при ховере и клике не вылетало окошко с ошибкой ставим none. Либо hover/click по надобности
         position: 'bottom',
         theme: 'tooltipster-shadow',
-        functionPosition: function (instance, helper, position) {
+        functionPosition: function functionPosition(instance, helper, position) {
             position.coord.top -= 10;
             return position;
         }
@@ -45,7 +47,7 @@ $(document).ready(function () {
     }, $.validator.format("Выберите файл с правильным расширением."));
 
     $.validator.addMethod('filesize', function (value, element, param) {
-        return this.optional(element) || ((element.files[0].size / 1024).toFixed(0) <= param)
+        return this.optional(element) || (element.files[0].size / 1024).toFixed(0) <= param;
     }, 'Размер файла не должен превышать 10 мегабайт');
 
     $.validator.addMethod('customphone', function (value, element) {
@@ -62,7 +64,7 @@ $(document).ready(function () {
     $.each($("form"), function () {
         $(this).validate({
             submit: true,
-            errorPlacement: function (error, element) {
+            errorPlacement: function errorPlacement(error, element) {
                 var ele = $(element),
                     err = $(error),
                     msg = err.text();
@@ -72,20 +74,20 @@ $(document).ready(function () {
                     $(element).siblings('i').hide('fade');
                 }
             },
-            success: function (label, element) {
+            success: function success(label, element) {
                 $(element).tooltipster('hide');
                 $(element).tooltipster('close');
                 $(element).siblings('i').show('fade');
             },
-            unhighlight: function (element, errorClass, validClass) {
+            unhighlight: function unhighlight(element, errorClass, validClass) {
                 $(element).removeClass(errorClass).addClass(validClass).tooltipster('close');
             },
             rules: {
                 name: {
-                    required: true,
+                    required: true
                 },
                 textarea: {
-                    required: false, // не валидируется
+                    required: false // не валидируется
                 },
                 email: {
                     required: true,
@@ -125,25 +127,24 @@ $(document).ready(function () {
                     required: "Выберите файл"
                 }
             },
-            submitHandler: function (form) {
-            }
+            submitHandler: function submitHandler(form) {}
         });
     });
 
-
     $("form:not('#form-file')").submit(function () {
         if ($(this).valid()) {
-            let self = $(this);
-            let data = self.serialize();
+            var self = $(this);
+            var data = self.serialize();
             $.ajax({
                 type: "POST",
                 url: "./mail.php",
                 data: data,
                 dataType: "json",
-                beforeSend: function () { // событие до отправки
+                beforeSend: function beforeSend() {
+                    // событие до отправки
                     self.find('input[type="submit"]').attr('disabled', 'disabled'); // например, отключим кнопку, чтобы не жали по 100 раз
                 },
-                success: function (data) {
+                success: function success(data) {
                     if (data['form_type'] == 'modal') {
                         $('.white-popup form').hide();
                         $('.white-popup .mfp-close').hide();
@@ -160,7 +161,8 @@ $(document).ready(function () {
                             self.find('input[type="submit"]').attr('disabled', false);
                         }, 3500);
                     }
-                    if (data['form_type'] == 'normal') { //надо писать в обычных формах <input type="hidden" name="form_type" value="normal">
+                    if (data['form_type'] == 'normal') {
+                        //надо писать в обычных формах <input type="hidden" name="form_type" value="normal">
                         self.trigger('reset');
                         $.magnificPopup.open({
                             items: {
@@ -180,17 +182,18 @@ $(document).ready(function () {
         return false;
     });
 
-//  Отправка форм с файлом вносим input[type=file]
-    let files;
+    //  Отправка форм с файлом вносим input[type=file]
+    var files = void 0;
     $('input[type=file]').change(function () {
         files = this.files;
         //alert(files);
     });
 
     //  Отправка форм с файлом submit
-    $("#form-file").on('submit', function (e) { // перехватываем все при событии отправки
+    $("#form-file").on('submit', function (e) {
+        // перехватываем все при событии отправки
         if ($(this).valid()) {
-            let $data = new FormData(),
+            var $data = new FormData(),
                 form = $(this),
                 $inputs = $("#form-file").find('input[type=hidden]'),
                 $phone = $("#form-file").find('input[name=phone]'),
@@ -219,12 +222,13 @@ $(document).ready(function () {
                 processData: false,
                 dataType: 'json',
                 data: $data,
-                beforeSend: function (loading) {
+                beforeSend: function beforeSend(loading) {
                     $('input[type=file]').tooltipster('content', "Файл загружается");
                     $('input[type=file]').tooltipster('show');
                 },
-                success: function (data) {
-                    if (data['form_type'] == 'normal') { //надо писать в обычных формах <input type="hidden" name="form_type" value="normal">
+                success: function success(data) {
+                    if (data['form_type'] == 'normal') {
+                        //надо писать в обычных формах <input type="hidden" name="form_type" value="normal">
                         $('input[type=file]').tooltipster('content', "Файл загружен!");
                         $('input[type=file]').tooltipster('show');
                         form.tooltipster('content', "Письмо отправлено!");
@@ -257,14 +261,11 @@ $(document).ready(function () {
                         // 	//$("body").css({ "overflow": "inherit", "padding-right": "0" });
                         // }, 3000);
                     }
-
                 }
             });
         }
         return false;
     });
-
-
 });
 //modal
 $(document).ready(function () {
@@ -283,7 +284,7 @@ $(document).ready(function () {
     // Определения браузера
     function get_name_browser() {
 
-        const ua = navigator.userAgent;
+        var ua = navigator.userAgent;
 
         if (ua.search(/Edge/) > 0) return 'Edge';
         if (ua.search(/Chrome/) > 0) return 'Google Chrome';
@@ -298,17 +299,17 @@ $(document).ready(function () {
 
     // Вешаем обработочик на свою кнопку close
     $(document).on("click", ".mfp-close", function () {
-        let magnificPopup = $.magnificPopup.instance;
+        var magnificPopup = $.magnificPopup.instance;
         magnificPopup.close();
     });
 
     // Открываем модальное окно
     $(".open-popup-link").click(function () {
-        let id = $(this).attr('href');
-        let txt = $(this).data('info');
+        var id = $(this).attr('href');
+        var txt = $(this).data('info');
 
         // var title =  $(this).data('title'); // для изменения title в модалке
-        $(`.popup${id} input[name=form_name]`).val(txt);
+        $('.popup' + id + ' input[name=form_name]').val(txt);
         // $(`.popup${id} .modal-title`).html(title); // прописать в ссылку data-title="нужный title"
         if (window.matchMedia("(min-width: 992px)").matches) {
             if (get_name_browser() == "Google Chrome") {
@@ -317,19 +318,18 @@ $(document).ready(function () {
         }
     });
 
-
     $('.open-popup-link').magnificPopup({
         type: 'inline',
         removalDelay: 200,
         callbacks: {
-            beforeOpen: function () {
+            beforeOpen: function beforeOpen() {
                 this.st.mainClass = this.st.el.attr('data-effect');
 
                 console.log(this.st.mainClass);
 
                 $('input:not("[type=submit], [type=hidden], .select2-search__field")').removeClass('tooltipster-show').tooltipster('close');
             },
-            close: function () {
+            close: function close() {
                 $('.white-popup i').hide();
                 if (get_name_browser() == "Google Chrome") {
                     $("html").removeClass("modal");
@@ -342,7 +342,7 @@ $(document).ready(function () {
                 //    $(".cd-transition-layer").removeClass("closing opening visible"),$(".cd-transition-layer").children().off("webkitAnimationEnd oanimationend msAnimationEnd animationend")
                 // })
             },
-            open: function () {
+            open: function open() {
                 $(".mfp-close-btn-in .mfp-close").tooltipster({
                     theme: 'tooltipster-light'
                 });
@@ -351,12 +351,8 @@ $(document).ready(function () {
         closeOnBgClick: true,
         closeOnContentClick: false,
         closeMarkup: '<button title="%title%" type="button" class="mfp-close"><i class="fa fa-close"></i></button>',
-        tClose: 'Закрыть (Esc)',
+        tClose: 'Закрыть (Esc)'
     });
-
-
-
-
 });
 
 $(document).ready(function () {
@@ -435,17 +431,18 @@ $(document).ready(function () {
     // });
 
     //E-mail Ajax Send
-    $("form.callback").submit(function() { //Change
+    $("form.callback").submit(function () {
+        //Change
 
-        let th = $(this);
+        var th = $(this);
 
         $.ajax({
             type: "POST",
             url: "mail.php", //Change
             data: th.serialize()
-        }).done(function() {
+        }).done(function () {
             $(th).find(".success").addClass("active").css("display", "flex").hide().fadeIn();
-            setTimeout(function() {
+            setTimeout(function () {
                 // Done Functions
                 $(th).find(".success").removeClass("active").fadeOut();
                 th.trigger("reset");
@@ -469,16 +466,16 @@ $(document).ready(function () {
     var api = $("#my-menu").data("mmenu");
 
     //   Hook into methods
-    api.bind("open:finish", function() {
-        $(".hamburger").addClass("is-active")
+    api.bind("open:finish", function () {
+        $(".hamburger").addClass("is-active");
     }).bind("close:finish", function () {
-        $(".hamburger").removeClass("is-active")
-    })
+        $(".hamburger").removeClass("is-active");
+    });
 
     //styling select
     $("select").selectize({
         create: true,
-        sortText: "text",
+        sortText: "text"
     });
 
     //hide preloader
@@ -486,8 +483,6 @@ $(document).ready(function () {
     $(".loader").fadeOut("slow");
 
     //com
+
+    var a = 10;
 });
-
-
-
-
