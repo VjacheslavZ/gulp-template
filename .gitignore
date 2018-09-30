@@ -1,0 +1,3 @@
+.idea
+node_modules/
+./server/config/keys_dev.js

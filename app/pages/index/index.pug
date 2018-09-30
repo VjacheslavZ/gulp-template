@@ -11,67 +11,90 @@ block main
     .product__config-price
         span.text Config.Price:
         span.base_price 0
+    div.main__wrap
+        div.wrap_innter
+            div ~~~~~~~~~~~~~~~~~~
+            .slider.slider_single
+                .range_content.range_type_one
+                    .range__title
+                        span.name Range type 1
+                        span.price ($1)
+                .range_input
+                    input.single_range(type='text', name='range_one', data-slider-min='0', data-slider-max='1000', data-slider-step='1', data-slider-value='0', data-slider-id='range_one', data-step-price='10')
+                .range_values
+                    span 0
+                    span 1000
 
-    div ~~~~~~~~~~~~~~~~~~
-    .slider.slider_single
-        .range_content.range_type_one
-            .range__title
-                span.name Range type 1
-                span.price ($1)
-        .range_input
-            input.single_range(type='text', name='range_one', data-slider-min='0', data-slider-max='1000', data-slider-step='1', data-slider-value='0', data-slider-id='range_one', data-step-price='10')
-        .range_values
-            span 0
-            span 1000
+            div ~~~~~~~~~~~~~~~~~~
+            .slider.slider_multiple
+                .range_content.range_type_one
+                    .range__title
+                        span.name Range type 1
+                        span.price ($1)
+                .range_input
+                    input.range__multiple(
+                        type='text',
+                        name='range__multiple',
+                        data-slider-min='0',
+                        data-slider-max='1000',
+                        data-slider-step='1',
+                        data-slider-id='range_double')
+                    br
+                .range_values
+                    span 0
+                    span 1000
+            div ~~~~~~~~~~~~~~~~~~
+            .slider.slider_multiple
+                .range_content.range_type_one
+                    .range__title
+                        span.name Range type 1
+                        span.price ($1)
+                .range_input
+                    input.range__multiple(
+                    type='text',
+                    name='range__multiple',
+                    data-slider-min='0',
+                    data-slider-max='1000',
+                    data-slider-step='1',
+                    data-slider-id='range_double')
+                    br
+                .range_values
+                    span 0
+                    span 1000
+            div ~~~~~~~~~~~~~~~~~~
+            .slider.slider_single
+                .range_content.range_type_one
+                    .range__title
+                        span.name Range type 1
+                        span.price ($1)
+                .range_input
+                    input.single_range(type='text', name='range_one', data-slider-min='0', data-slider-max='1000', data-slider-step='1', data-slider-value='0', data-slider-id='range_one', data-step-price='10')
+                .range_values
+                    span 0
+                    span 1000
+        div.wrap_innter
+            div ~~~~~~~~~~~~~~~~~~
+            .confBlock-main__options
+                span.confBlock-main__options-title Configs
+                .confBlock-main__options-btn
+                    label.options-btn
+                        input(type='checkbox', name='option1' class='a')
+                        span.checkmark
+                        span.config__name
+                            | Option 1
+                            span ($7)
+            div ~~~~~~~~~~~~~~~~~~
+            .confBlock-main__options.selects
+                span.confBlock-main__options-title Configs2
+                .confBlock-main__options-checkBox
+                    label.config__select
+                        input(type='checkbox', name='option1' class='a')
+                        span.checkmark
+                        span.config__name
+                            | Option 1
+                            span ($7)
 
-    div ~~~~~~~~~~~~~~~~~~
-    .slider.slider_multiple
-        .range_content.range_type_one
-            .range__title
-                span.name Range type 1
-                span.price ($1)
-        .range_input
-            input.range__multiple(
-                type='text',
-                name='range__multiple',
-                data-slider-min='0',
-                data-slider-max='1000',
-                data-slider-step='1',
-                data-slider-id='range_double')
-            br
-        .range_values
-            span 0
-            span 1000
-    div ~~~~~~~~~~~~~~~~~~
-    .slider.slider_multiple
-        .range_content.range_type_one
-            .range__title
-                span.name Range type 1
-                span.price ($1)
-        .range_input
-            input.range__multiple(
-            type='text',
-            name='range__multiple',
-            data-slider-min='0',
-            data-slider-max='1000',
-            data-slider-step='1',
-            data-slider-id='range_double')
-            br
-        .range_values
-            span 0
-            span 1000
-    div ~~~~~~~~~~~~~~~~~~
-    .slider.slider_single
-        .range_content.range_type_one
-            .range__title
-                span.name Range type 1
-                span.price ($1)
-        .range_input
-            input.single_range(type='text', name='range_one', data-slider-min='0', data-slider-max='1000', data-slider-step='1', data-slider-value='0', data-slider-id='range_one', data-step-price='10')
-        .range_values
-            span 0
-            span 1000
-    div ~~~~~~~~~~~~~~~~~~
+
 
 
 

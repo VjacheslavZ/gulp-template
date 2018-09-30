@@ -59,7 +59,6 @@ gulp.task("scripts-libs", function () {
       // "app/libs/select2/dist/js/select2.full.js",
       // "app/libs/mmenu/mmenu/jquery.mmenu.all.js",
       // "app/libs/selectize/dist/js/standalone/selectize.min.js"
-
    ])
        .pipe(concat("libs.min.js"))
        .pipe(uglyfi())

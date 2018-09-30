@@ -136,6 +136,16 @@ input, textarea, select {
   input option, textarea option, select option {
     color: #000; }
 
+.main__wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around; }
+
 .input_wrap {
   position: relative;
   display: block; }
