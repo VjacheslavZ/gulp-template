@@ -3,23 +3,179 @@
 @import "sprite"
 @import "default"
 @import "part"
-@import "header"
-
 
 // Секция top-section
-.top-section
-  text-align: center
+body
+  color: #fff
+  font-family: $OpenSansRegular
+
+.bg
   min-height: 600px
   height: 100vh
   background: url(../img/header_bg.jpg) no-repeat
   background-size: cover
-  &__title
-    color: red
+.main-wrap
+  width: 1000px
+  height: auto
+  min-height: 400px
+  background-color: rgba(0, 0, 0, .8)
+  position: absolute
+  top: 50px
+  left: 0
+  right: 0
+  margin: 0 auto
+
+.top-section
+  justify-content: center
+  display: flex
+
+.myProgress
+  margin-left: 5px
+  width: 50%
+  background-color: grey
+
+.myBar
+  width: 1%
+  height: 30px
+  background-color: green
+
+.main-section
+  height: 100%
+  display: flex
+  border-top: 1px solid gray
+  margin-top: 5px
+  border: 1px solid gray
+
+.category-section
+  width: 30%
+  min-height: 400px
+  height: auto
+  border-right: 1px solid gray
+  text-align: center
+  border-botoom: 1px solid gray
+  display: block
+  span
+    border-bottom: 1px solid gray
+    display: block
+.category-list
+  width: 70%
+  height: 100%
+  min-height: 400px
+  height: 100%
+  text-align: center
+  border-left: 1px solid gray
+  span
+    border-bottom: 1px solid gray
+    display: block
+
+//.category-section
+.category-section__menu,
+.category-section__menu ul
+  list-style: none
+  padding: 0
+  margin: 0
+.category-section__menu a
+  display: block
+  background-color: #808080
+  text-decoration: none
+  padding: 10px
+  color: #000
+  text-align: left
+.category-section__menu a:hover
+  background-color: #2c2c2c
+.category-section__menu li:hover ul
+  display: block
+  max-height: 200px
+
+.category-section__menu ul a
+  background-color: #999
+  padding-left: 20px
+.category-section__menu ul a:hover
+  background-color: #666
+
+.category-section__menu  ul
+  overflow: hidden
+  max-height: 0
+  -webkit-transition: all 0.5s ease-out
+
+
+.category-list__todo
+  list-style: none
+  padding: 0
+  margin: 0
+  display: flex
+  flex-direction: column
+  li
+    width: 95%
+    display: flex
+    background-color: #808080
+    text-decoration: none
+    padding: 10px
+    color: #000
+    text-align: left
+    flex-direction: column
+    margin: 0 auto
+.category-list__info
+  display: flex
+  justify-content: space-between
+  width: 100%
+
+.category-list__short-info
+  display: flex
+  flex-direction: column
+  width: 70%
+.category-list__task-name
+  color: #F3FD00
+.category-list__task-desc
+  color: #B8BE2F
+.category-list__control
+  display: flex
+  flex-direction: column
+  button
+    background-color: transparent
+    border: none
+    height: 25px
+    border-radius: 5px
+    transition: background-color .3s ease
+  button  + button
+    margin-top: 6px
+  .category-list__edit
+    background-color: #F7FE40
+    &:hover
+      background-color: darken(#F7FE40, 25%)
+  .category-list__dell
+    background-color: #9EA400
+    &:hover
+      background-color: darken(#9EA400, 20%)
+
+.category-list__full-desc
+  textarea
+    resize: vertical
+    height: 0
+    opacity: 0
+    visibility: hidden
+    width: 93%
+    overflow: hidden
+    -webkit-transition: all 0.5s ease-out
+    transition: height .3s ease
+
+.category-list__todo
+  li
+    &:hover
+      textarea
+        height: 70px
+        opacity: 1
+        visibility: visible
+//display: block
+
+.slider
+  .tooltip.top
     position: absolute
-    top: calc(50% - 50px)
-    left: 0
-    right: 0
-    &:before
-      content: ""
-      display: block
-      @include sprite($mail_to)
+
+.slider
+  margin-top: 40px
+
+body
+  padding-left: 50px
+.slider .tooltip.top
+  position: absolute

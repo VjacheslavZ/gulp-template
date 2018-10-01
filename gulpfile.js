@@ -49,16 +49,16 @@ gulp.task("css-libs", ['sass'], function () {
 gulp.task("scripts-libs", function () {
    return gulp.src([
       "app/libs/jquery/dist/jquery.min.js",
+      "app/libs/bootstrap-slider/bootstrap-slider.min.js",
       //"app/libs/bootstrap/dist/js/bootstrap.js",
-      "app/libs/owl.carousel/dist/owl.carousel.min.js",
-      "app/libs/magnific-popup/dist/jquery.magnific-popup.min.js",
-      "app/libs/tooltipster/dist/js/tooltipster.bundle.js",
-      "app/libs/jquery-validation/dist/jquery.validate.js",
-      "app/libs/jquery-mask-plugin/dist/jquery.mask.min.js",
+      // "app/libs/owl.carousel/dist/owl.carousel.min.js",
+      // "app/libs/magnific-popup/dist/jquery.magnific-popup.min.js",
+      // "app/libs/tooltipster/dist/js/tooltipster.bundle.js",
+      // "app/libs/jquery-validation/dist/jquery.validate.js",
+      // "app/libs/jquery-mask-plugin/dist/jquery.mask.min.js",
       // "app/libs/select2/dist/js/select2.full.js",
-      "app/libs/mmenu/mmenu/jquery.mmenu.all.js",
-      "app/libs/selectize/dist/js/standalone/selectize.min.js"
-
+      // "app/libs/mmenu/mmenu/jquery.mmenu.all.js",
+      // "app/libs/selectize/dist/js/standalone/selectize.min.js"
    ])
        .pipe(concat("libs.min.js"))
        .pipe(uglyfi())

@@ -7,72 +7,11 @@ html(class="no-js" lang='en')
         title
             block title
 
-        style(type='text/css').
-            html .loader {
-                background: #fff;
-                z-index: 9999;
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-            }
-
-            html .loader .loader_inner {
-                background-size: cover;
-                background-position: center center;
-                background-repeat: no-repeat;
-                background-color: #fff;
-                height: 200px;
-                width: 200px;
-                margin-top: -100px;
-                margin-left: -100px;
-                left: 50%;
-                top: 50%;
-                position: absolute
-            }
         link(rel='stylesheet', href='css/libs.min.css')
         link(rel='stylesheet', href='css/main.css')
     body
-        div#my-page
-            div
-                .loader
-                    .loader_inner
-                        include ../img/preloader.svg
-
-            block modal
-                include modal
-
-            header#my-header.header
-                .container
-                    .header__wrap
-                        //.header__logo
-                            a(href="/" class="logo" title="Логотип").
-                                Ваш Логотип
-                        nav.header__nav
-                            ul
-                                -var links = [{title:'About us', href:'#'},{title:'Reservation', href:'#'},{title:'Gallery', href:'#'},{title:'', href:"index.html"},{title:'Blog', href:'#'}, {title:'Elements', href:'#'}, {title:'shop', href:'#'}];
-                                each i in links
-                                    li
-                                        a(href=i.href)= i.title
-                        //.header__modal
-                            a(data-effect="mfp-zoom-in" data-info="Обратный звонок" href="#popup" class="open-popup-link" title='Вызов стандартного модального окна') Обратный звонок
-                        a(href="#my-menu").hamburger.hamburger--collapse
-                            span.hamburger-box
-                                span.hamburger-inner
-                        nav#my-menu
-                            ul
-                                li
-                                    a(href="#") item 1
-                                li.active
-                                    a(href="#") item 2
-
+        div
             block main
-
-            footer.footer#my-footer
-                h3 footer
 
         script(src='js/libs.min.js')
         script(src='js/common.js')

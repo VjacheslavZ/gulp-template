@@ -6,197 +6,75 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Index page
     </title>
-    <style type="text/css">
-      html .loader {
-          background: #fff;
-          z-index: 9999;
-          position: fixed;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          top: 0;
-          width: 100%;
-          height: 100%;
-      }
-      
-      html .loader .loader_inner {
-          background-size: cover;
-          background-position: center center;
-          background-repeat: no-repeat;
-          background-color: #fff;
-          height: 200px;
-          width: 200px;
-          margin-top: -100px;
-          margin-left: -100px;
-          left: 50%;
-          top: 50%;
-          position: absolute
-      }
-    </style>
     <link rel="stylesheet" href="css/libs.min.css">
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
-    <div id="my-page">
-      <div>
-        <div class="loader">
-          <div class="loader_inner"><?xml version="1.0" standalone="no"?>
-<!-- Generator: SVG Circus (http://svgcircus.com) -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg id="SVG-Circus-98861a89-876d-9600-85e1-80f4e464c604" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet"><circle id="actor_3" cx="50" cy="60" r="4" opacity="1" fill="rgba(12,132,242,1)" fill-opacity="1" stroke="rgba(255,255,255,1)" stroke-width="1" stroke-opacity="1" stroke-dasharray=""></circle><circle id="actor_2" cx="50" cy="60" r="4" opacity="1" fill="rgba(12,132,242,1)" fill-opacity="1" stroke="rgba(255,255,255,1)" stroke-width="1" stroke-opacity="1" stroke-dasharray=""></circle><circle id="actor_1" cx="50" cy="60" r="4" opacity="1.00" fill="rgba(12,132,242,1)" fill-opacity="1" stroke="rgba(255,255,255,1)" stroke-width="1" stroke-opacity="1" stroke-dasharray=""></circle><script type="text/ecmascript"><![CDATA[(function(){var actors={};actors.actor_1={node:document.getElementById("SVG-Circus-98861a89-876d-9600-85e1-80f4e464c604").getElementById("actor_1"),type:"circle",cx:50,cy:60,dx:8,dy:14,opacity:1.00};actors.actor_2={node:document.getElementById("SVG-Circus-98861a89-876d-9600-85e1-80f4e464c604").getElementById("actor_2"),type:"circle",cx:50,cy:60,dx:8,dy:14,opacity:1};actors.actor_3={node:document.getElementById("SVG-Circus-98861a89-876d-9600-85e1-80f4e464c604").getElementById("actor_3"),type:"circle",cx:50,cy:60,dx:8,dy:14,opacity:1};var tricks={};tricks.trick_1=(function(_,t){t=(function(n){return.5>n?2*n*n:-1+(4-2*n)*n})(t)%1,t=t*4%1,t=0>t?1+t:t;var a=(_.node,-12*Math.cos(-90*Math.PI/180)),i=12*Math.sin(-90*Math.PI/180);a+=12*Math.cos((-90-360*t*1)*Math.PI/180),i-=12*Math.sin((-90-360*t*1)*Math.PI/180),_._tMatrix[4]+=a,_._tMatrix[5]+=i});tricks.trick_2=(function(t,i){i=(function(n){return.5>n?2*n*n:-1+(4-2*n)*n})(i)%1,i=0>i?1+i:i;var _=t.node;0.1>=i?_.setAttribute("opacity",i*(t.opacity/0.1)):i>=0.9?_.setAttribute("opacity",t.opacity-(i-0.9)*(t.opacity/(1-0.9))):_.setAttribute("opacity",t.opacity)});var scenarios={};scenarios.scenario_1={actors: ["actor_1","actor_2","actor_3"],tricks: [{trick: "trick_2",start:0,end:1},{trick: "trick_1",start:0,end:1}],startAfter:0,duration:4100,actorDelay:140,repeat:0,repeatDelay:1000};var _reqAnimFrame=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.oRequestAnimationFrame,fnTick=function(t){var r,a,i,e,n,o,s,c,m,f,d,k,w;for(c in actors)actors[c]._tMatrix=[1,0,0,1,0,0];for(s in scenarios)for(o=scenarios[s],m=t-o.startAfter,r=0,a=o.actors.length;a>r;r++){if(i=actors[o.actors[r]],i&&i.node&&i._tMatrix)for(f=0,m>=0&&(d=o.duration+o.repeatDelay,o.repeat>0&&m>d*o.repeat&&(f=1),f+=m%d/o.duration),e=0,n=o.tricks.length;n>e;e++)k=o.tricks[e],w=(f-k.start)*(1/(k.end-k.start)),tricks[k.trick]&&tricks[k.trick](i,Math.max(0,Math.min(1,w)));m-=o.actorDelay}for(c in actors)i=actors[c],i&&i.node&&i._tMatrix&&i.node.setAttribute("transform","matrix("+i._tMatrix.join()+")");_reqAnimFrame(fnTick)};_reqAnimFrame(fnTick);})()]]></script></svg>
+    <div><span>total price</span><span class="product__sum-price">55</span>
+      <div class="product__base-price"><span class="text">Basic Price:</span><span class="base_price">55</span></div>
+      <div class="product__config-price"><span class="text">Config.Price:</span><span class="base_price">0</span></div>
+      <div class="main__wrap">
+        <div class="wrap_innter">
+          <div>~~~~~~~~~~~~~~~~~~</div>
+          <div class="slider slider_single">
+            <div class="range_content range_type_one">
+              <div class="range__title"><span class="name">Range type 1</span><span class="price">($1)</span></div>
+            </div>
+            <div class="range_input">
+              <input class="single_range" type="text" name="range_one" data-slider-min="0" data-slider-max="1000" data-slider-step="1" data-slider-value="0" data-slider-id="range_one" data-step-price="10">
+            </div>
+            <div class="range_values"><span>0</span><span>1000</span></div>
+          </div>
+          <div>~~~~~~~~~~~~~~~~~~</div>
+          <div class="slider slider_multiple">
+            <div class="range_content range_type_one">
+              <div class="range__title"><span class="name">Range type 1</span><span class="price">($1)</span></div>
+            </div>
+            <div class="range_input">
+              <input class="range__multiple" type="text" name="range__multiple" data-slider-min="0" data-slider-max="1000" data-slider-step="1" data-slider-id="range_double"><br>
+            </div>
+            <div class="range_values"><span>0</span><span>1000</span></div>
+          </div>
+          <div>~~~~~~~~~~~~~~~~~~</div>
+          <div class="slider slider_multiple">
+            <div class="range_content range_type_one">
+              <div class="range__title"><span class="name">Range type 1</span><span class="price">($1)</span></div>
+            </div>
+            <div class="range_input">
+              <input class="range__multiple" type="text" name="range__multiple" data-slider-min="0" data-slider-max="1000" data-slider-step="1" data-slider-id="range_double"><br>
+            </div>
+            <div class="range_values"><span>0</span><span>1000</span></div>
+          </div>
+          <div>~~~~~~~~~~~~~~~~~~</div>
+          <div class="slider slider_single">
+            <div class="range_content range_type_one">
+              <div class="range__title"><span class="name">Range type 1</span><span class="price">($1)</span></div>
+            </div>
+            <div class="range_input">
+              <input class="single_range" type="text" name="range_one" data-slider-min="0" data-slider-max="1000" data-slider-step="1" data-slider-value="0" data-slider-id="range_one" data-step-price="10">
+            </div>
+            <div class="range_values"><span>0</span><span>1000</span></div>
+          </div>
+        </div>
+        <div class="wrap_innter">
+          <div>~~~~~~~~~~~~~~~~~~</div>
+          <div class="confBlock-main__options"><span class="confBlock-main__options-title">Configs</span>
+            <div class="confBlock-main__options-btn">
+              <label class="options-btn">
+                <input class="a" type="checkbox" name="option1"><span class="checkmark"></span><span class="config__name">Option 1<span>($7)</span></span>
+              </label>
+            </div>
+          </div>
+          <div>~~~~~~~~~~~~~~~~~~</div>
+          <div class="confBlock-main__options selects"><span class="confBlock-main__options-title">Configs2</span>
+            <div class="confBlock-main__options-checkBox">
+              <label class="config__select">
+                <input class="a" type="checkbox" name="option1"><span class="checkmark"></span><span class="config__name">Option 1<span>($7)</span></span>
+              </label>
+            </div>
           </div>
         </div>
       </div>
-      <div class="mfp-hide white-popup mfp-with-anim popup" id="popup">
-        <p class="success_mail">Спасибо! Ваша заявка уже обрабатывается менеджером и в ближайшее время он с вами свяжется.</p>
-        <form>
-          <p class="modal-title">Введите данные</p>
-          <p class="modal-paragraph">и мы Вам перезвоним</p>
-          <div>
-            <div class="input_wrap"><i class="fa fa-check"></i>
-              <input name="name" type="text" placeholder="Имя">
-            </div>
-            <div class="input_wrap"><i class="fa fa-check"></i>
-              <input name="phone" type="text" placeholder="Введите свой телефон">
-            </div>
-            <div class="input_wrap"><i class="fa fa-check"></i>
-              <input class="mask" name="phone_mask" type="text" placeholder="+38(___) ___-__-__">
-            </div>
-            <div class="input_wrap"><i class="fa fa-check"></i>
-              <input name="email" type="text" placeholder="E-mail">
-            </div>
-            <div class="input_wrap"><i class="fa fa-check"></i>
-              <textarea name="textarea" type="text" placeholder="Описание заяки"></textarea>
-            </div>
-            <div class="select">
-              <div class="slct_arrow"><i class="fa fa-angle-down"></i></div><a class="slct" href="#">Выбор заголовков:</a>
-              <ul class="drop">
-                <li>Вы крутые</li>
-                <li>Я в Вас влюбился</li>
-                <li>Быстрей Вас только Флеш</li>
-              </ul>
-              <input type="hidden" name="services">
-            </div>
-          </div>
-          <input type="hidden" name="form_name" value="">
-          <input type="hidden" name="form_type" value="modal">
-          <input type="submit" value="Отправить">
-        </form>
-      </div>
-      <div class="overlay"></div>
-      <!-- Модальное окно success-->
-      <div class="mfp-hide white-popup mfp-with-anim popup" id="popup-success">
-        <p class="success_mail">Заявка отправлена</p>
-      </div>
-      <header class="header" id="my-header">
-        <div class="container">
-          <div class="header__wrap">
-            <!--.header__logo
-            a(href="/" class="logo" title="Логотип").
-                Ваш Логотип
-            -->
-            <nav class="header__nav">
-              <ul>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Reservation</a></li>
-                <li><a href="#">Gallery</a></li>
-                <li><a href="index.html"></a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Elements</a></li>
-                <li><a href="#">shop</a></li>
-              </ul>
-            </nav>
-            <!--.header__modala(data-effect="mfp-zoom-in" data-info="Обратный звонок" href="#popup" class="open-popup-link" title='Вызов стандартного модального окна') Обратный звонок
-            --><a class="hamburger hamburger--collapse" href="#my-menu"><span class="hamburger-box"><span class="hamburger-inner"></span></span></a>
-            <nav id="my-menu">
-              <ul>
-                <li><a href="#">item 1</a></li>
-                <li class="active"><a href="#">item 2</a></li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </header>
-      <main id="my-content">
-        <section class="top-section">
-          <div class="container">
-            <div class="row">
-              <div class="top-section__title">
-                <h1><span>text</span> text</h1>
-                <p>text desk</p>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section class="intermediate">
-          <div class="container">
-            <div class="row">
-              <div class="intermediate_title">
-                <h3>Заполните форму и мы бесплатно перезвоним и ответим на ваши вопросы</h3>
-              </div>
-              <div class="intermediate_wrap">
-                <form class="clearfix" id="form-file">
-                  <!--.file_wrapinput(type='file' name='field')
-                  -->
-                  <div class="row">
-                    <div class="intermediate_item">
-                      <div class="input_wrap"><i class="fa fa-check"></i>
-                        <input name="name" type="text" placeholder="Имя">
-                      </div>
-                    </div>
-                    <div class="intermediate_item">
-                      <div class="input_wrap"><i class="fa fa-check"></i>
-                        <input name="email" type="text" placeholder="Почта">
-                      </div>
-                    </div>
-                    <div class="intermediate_item">
-                      <div class="input_wrap"><i class="fa fa-check"></i>
-                        <input name="phone" type="text" placeholder="Телефон">
-                      </div>
-                    </div>
-                    <input type="hidden" name="form_name" value="baseForm">
-                    <input type="hidden" name="form_type" value="normal">
-                    <div class="intermediate_item">
-                      <input type="submit" value="Записаться">
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </section>
-        <!--section.s-call
-        form.callback
-            //.success - эфект затемнения
-            .s-call__success
-                span Спасибо за заявку
-        
-            //название сайта
-            input(type='hidden' name='project_name' value='Site Name !')
-            //почта админа
-            input(type='hidden' name='admin_email' value='slavikov.net@mail.ru')
-            //тема письма
-            input(type='hidden' name='form_subject' value='Form Subject')
-            //с какой страницы
-            input(type="hidden" name="Станица" value="")
-        
-            .formhead Оставить заявку
-        
-            // END Hidden Required Fields
-            input(type='text' name='Name' placeholder='You name...' required='')
-            input(type='text' name='E-mail' placeholder='You E-mail...' required='')
-        
-            input(type='text' name='Phone' placeholder='You phone...' required='')
-            select(name="Услуга")
-                option услуга 1
-                option услуга 2
-                option услуга 3
-            button Send
-        -->
-      </main>
-      <footer class="footer" id="my-footer">
-        <h3>footer</h3>
-      </footer>
     </div>
     <script src="js/libs.min.js"></script>
     <script src="js/common.js"></script>
